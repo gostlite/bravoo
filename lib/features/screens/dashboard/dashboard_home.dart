@@ -21,24 +21,36 @@ class DashboardHome extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Color(0xFF2A0052),
       ),
-      backgroundColor: const Color(0xFF2A0052), // Light grey background
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            // SvgPicture.asset("assets/svgs/oraimo.svg", height: 150.h),
-            Image.asset("assets/images/oraimo.png", height: 150.h),
-            Image.asset("assets/images/box.png", height: 150.h),
-            10.verticalSpace,
 
-            // _buildHeaderSection(),
-            20.verticalSpace,
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              const Color(0xFF2A0052), // Dark purple
+              const Color.fromARGB(255, 49, 6, 88), // Light purple
+            ],
+          ),
+        ),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              // SvgPicture.asset("assets/svgs/oraimo.svg", height: 150.h),
+              Image.asset("assets/images/oraimo.png", height: 150.h),
+              Image.asset("assets/images/box.png", height: 150.h),
+              10.verticalSpace,
 
-            // Floating Icon (Megaphone placeholder)
-            20.verticalSpace,
-            Image.asset("assets/images/draw.png", height: 150.h),
-            _buildInviteSection(),
-            20.verticalSpace,
-          ],
+              // _buildHeaderSection(),
+              20.verticalSpace,
+
+              // Floating Icon (Megaphone placeholder)
+              20.verticalSpace,
+              Image.asset("assets/images/draw.png", height: 150.h),
+              _buildInviteSection(),
+              20.verticalSpace,
+            ],
+          ),
         ),
       ),
     );
@@ -47,9 +59,9 @@ class DashboardHome extends StatelessWidget {
   Widget _buildInviteSection() {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 20.w),
-      padding: EdgeInsets.all(20.w),
+      padding: EdgeInsets.only(top: 20.h, left: 20.w, right: 20.w),
       decoration: BoxDecoration(
-        color: const Color.fromARGB(255, 109, 40, 182), // Light purple
+        color: const Color.fromARGB(255, 69, 19, 122), // Light purple
         borderRadius: BorderRadius.circular(20.r),
       ),
       child: Column(
@@ -69,22 +81,24 @@ class DashboardHome extends StatelessWidget {
           AppText(
             text: "Qualification Rule",
             size: 24.sp,
-            weight: FontWeight.w600,
+            weight: FontWeight.w800,
             color: Colors.white,
           ),
+          10.verticalSpace,
           AppText(
             text:
                 "Invite at least 2 friends who sign up through your link to qualify.",
-            size: 16.sp,
-            weight: FontWeight.w400,
+            size: 14.sp,
+            // weight: FontWeight.w400,
             color: Colors.white.withValues(alpha: 0.8),
             textAlign: TextAlign.center,
           ),
           20.verticalSpace,
           Container(
+            margin: EdgeInsets.symmetric(vertical: 10.h),
             padding: EdgeInsets.all(20.w),
             decoration: BoxDecoration(
-              color: const Color.fromARGB(255, 128, 80, 179),
+              color: const Color.fromARGB(255, 88, 40, 139),
               borderRadius: BorderRadius.circular(20.r),
               boxShadow: [
                 BoxShadow(
@@ -126,14 +140,10 @@ class DashboardHome extends StatelessWidget {
                     ],
                   ),
                 ),
-                SizedBox(height: 30.h),
+
                 // Avatar Placeholder
-                CircleAvatar(
-                  radius: 25.r,
-                  backgroundColor: Colors.purple.shade100,
-                  child: Icon(Icons.person, color: Colors.purple, size: 30.sp),
-                ),
-                SizedBox(height: 20.h),
+                Image.asset("assets/images/invite-friends.png", height: 100.h),
+                20.verticalSpace,
                 Text(
                   "Once your second friend joins, you're\nautomatically entered.",
                   textAlign: TextAlign.center,
@@ -143,32 +153,88 @@ class DashboardHome extends StatelessWidget {
                     height: 1.5,
                   ),
                 ),
-                SizedBox(height: 30.h),
-                // Empty Input Field Placeholder
+                30.verticalSpace,
+                Divider(color: Colors.white38, thickness: 1),
+                20.verticalSpace,
+                AppText(
+                  text: "Invite your friends quick & easy.",
+                  color: Colors.white,
+                  size: 16.sp,
+                ),
+                10.verticalSpace,
                 Container(
                   height: 50.h,
                   decoration: BoxDecoration(
-                    color: Colors.grey[50],
+                    color: const Color.fromARGB(255, 111, 68, 157),
                     borderRadius: BorderRadius.circular(15.r),
                     border: Border.all(color: Colors.grey[200]!),
                   ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      AppText(
+                        text: "https://Bravoo.ref.12419",
+                        size: 16.sp,
+                        weight: FontWeight.w400,
+                        color: Colors.white,
+                      ),
+                      10.horizontalSpace,
+                      Icon(Icons.copy, color: Colors.white, size: 20.sp),
+                    ],
+                  ),
                 ),
-                SizedBox(height: 30.h),
+                30.verticalSpace,
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     _buildSocialIcon(
                       Icons.chat_bubble,
-                      Colors.green,
+                      // Colors.green,
+                      "whatsapp",
                     ), // WhatsApp placeholder
                     _buildSocialIcon(
                       Icons.close,
-                      Colors.black,
+                      // Colors.black,
+                      "twitter",
                     ), // X placeholder
                     _buildSocialIcon(
                       Icons.business,
-                      Colors.blue[800]!,
+                      // Colors.blue[800]!,
+                      "linkedin",
                     ), // LinkedIn placeholder
+                  ],
+                ),
+                Row(
+                  children: [
+                    Row(
+                      children: [
+                        AppText(
+                          text: "You referred",
+                          size: 16.sp,
+                          weight: FontWeight.w400,
+                          color: Colors.white,
+                        ),
+                        5.horizontalSpace,
+                        Icon(
+                          Icons.info_outlined,
+                          color: Colors.white,
+                          size: 20.sp,
+                        ),
+                      ],
+                    ),
+                    const Spacer(),
+                    Row(
+                      children: [
+                        Icon(Icons.people, color: Colors.white, size: 20.sp),
+                        5.horizontalSpace,
+                        AppText(
+                          text: "1",
+                          size: 16.sp,
+                          weight: FontWeight.w400,
+                          color: Colors.white,
+                        ),
+                      ],
+                    ),
                   ],
                 ),
               ],
@@ -179,11 +245,21 @@ class DashboardHome extends StatelessWidget {
     );
   }
 
-  Widget _buildSocialIcon(IconData icon, Color color) {
+  Widget _buildSocialIcon(IconData icon, String image) {
     return Container(
+      height: 100.h,
+
+      width: 70.w,
       padding: EdgeInsets.all(12.w),
-      decoration: BoxDecoration(color: color, shape: BoxShape.circle),
-      child: Icon(icon, color: Colors.white, size: 24.sp),
+      decoration: BoxDecoration(
+        // color: const Color.fromARGB(255, 111, 68, 157),
+        shape: BoxShape.rectangle,
+      ),
+      child: Image.asset(
+        "assets/images/$image.png",
+        height: 100.h,
+        width: 70.w,
+      ),
     );
   }
 }
