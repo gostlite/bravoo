@@ -149,10 +149,12 @@ class _SignupScreenState extends State<SignupScreen> {
                 },
               ),
               24.hSpace,
-              AppButton(
-                text: 'Sign up',
-                onPressed: _signUp,
-                isLoading: _isLoading,
+              Center(
+                child: AppButton(
+                  text: 'Sign up',
+                  onPressed: _signUp,
+                  isLoading: _isLoading,
+                ),
               ),
               24.hSpace,
               Row(
